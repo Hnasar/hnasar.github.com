@@ -112,6 +112,10 @@ Remote: Updating the remote
     [____]          [____]
 ~~~~~~~~~~~~~~~~~~~
 
+* (DANGEROUS if the remote repo gets completely messed up, try `git push -f`
+  It's usually better to resolve conflicts rather than do this. This can lead
+  to lost data)
+
 Remote: Creating a new local
 ----------------------------
 > * Download an entire remote repository to a new local copy with `git clone`
