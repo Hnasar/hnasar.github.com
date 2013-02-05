@@ -350,7 +350,7 @@ GitHub: Forking
 > * GitHub "Forking" is something GitHub invented (not a part of git)
 
 * GitHub "Forking" is a way to copy a remote git repo from one GitHub user to another.
-* "fork" typically means taking an existing project, and developing it in a new direction. This is what happened when LibreOffice forked from OpenOffice and Ubuntu from Debian.
+* "fork" typically means taking an existing project, and developing it in a new direction. This is what happened when Ubuntu forked from Debian. We say Debian is the upstream.
 
 ~~~~~~~~~~~~~~~~~~~
      remote          remote
