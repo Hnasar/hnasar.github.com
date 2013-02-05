@@ -15,6 +15,15 @@ What is git?
 * Git $\neq$ GitHub, though [Git's code](https://github.com/git/git) is
   available there.
 
+Using Git
+---------
+
+* Read the manual
+* `git help` *\<command\>*
+    * Warning: the documentation is pretty gross
+* The following are the most useful bits of git knowledge I've picked up over
+  the years.
+
 Git: Local Repository Only
 ==========================
 
@@ -66,6 +75,7 @@ Basic Usage (local + remote repository)
 * Git repositories can be synchronized between multiple local and multiple remote computers (e.g. your laptop, halligan, and GitHub).
     * A repository's `.git/config` file has details
     * Default remote name is `origin`
+    * *git remote add origin https://github.com/Hnasar/test.git*
 * GitHub offers public remote repositories
 * Local and remote repositories has benefits:
     * Work on stuff without an Internet connection
@@ -321,7 +331,7 @@ Combining Branches
 ~~~~~~~~~~~~~~~~~~
 
 Conflicts
-=========
+---------
 * Git is smart about what lines changed in which files in a commit
 * Some commits indicate contradicting changes.
 * If git can't figure it out, it writes both version the file, complains of a
@@ -370,6 +380,17 @@ GitHub: Pull Request
     [____]         [____]
 ~~~~~~~~~~~~~~~~~~~
 
+GitHub: No passwords
+---------------------
+* Possible to use GitHub without typing in username & password each time
+* [Set up SSH keys](https://help.github.com/articles/generating-ssh-keys#platform-windows)
+* Make sure that your remote URIs are set to `git@github.com/`...
+* ![Proper GitHub URI](ssh-github.png)
+* Check a repository's `.git/config` file
+
+
+
+
 Time Travel
 ===========
 
@@ -390,5 +411,5 @@ End
 
 Questions/Comments
 ------------------
-* Unclear?
+* Still unclear?
 * Did I miss something?

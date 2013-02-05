@@ -22,9 +22,8 @@ Hashem Nasarat
   </p>
   <p class="date">February 4, 2013</p>
 </div>
-<div class="section slide level1">
-
-<h2 id="what-is-git">What is git?</h2>
+<div class="section slide level2" id="what-is-git">
+<h1>What is git?</h1>
 <ul class="incremental">
 <li>Git: Version Control System (VCS)</li>
 <li>Distributed: Lives on more than one computer</li>
@@ -36,9 +35,19 @@ Hashem Nasarat
 <li>Git <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Cneq" alt="\neq" title="\neq" /> GitHub, though <a href="https://github.com/git/git">Git’s code</a> is available there.</li>
 </ul>
 </div>
-<div class="section slide level1" id="git-local-repository-only">
-<h1>Git: Local Repository Only</h1>
-<h2 id="basic-usage-local-repository">Basic Usage (local repository)</h2>
+<div class="section slide level2" id="using-git">
+<h1>Using Git</h1>
+<ul class="incremental">
+<li>Read the manual</li>
+<li><code>git help</code> <em>&lt;command&gt;</em>
+<ul class="incremental">
+<li>Warning: the documentation is pretty gross</li>
+</ul></li>
+<li>The following are the most useful bits of git knowledge I’ve picked up over the years.</li>
+</ul>
+</div>
+<div class="section titleslide slide level1" id="git-local-repository-only"><h1>Git: Local Repository Only</h1></div><div class="section slide level2" id="basic-usage-local-repository">
+<h1>Basic Usage (local repository)</h1>
 <ul>
 <li><code>git init</code> – Create a repository</li>
 </ul>
@@ -61,7 +70,8 @@ Hashem Nasarat
 <ul class="incremental">
 <li><strong>HEAD</strong>: the current commit</li>
 </ul>
-<h2 id="basic-usage-local-repository-1">Basic Usage (local repository)</h2>
+</div><div class="section slide level2" id="basic-usage-local-repository-1">
+<h1>Basic Usage (local repository)</h1>
 <ul>
 <li><em>rinse, repeat</em></li>
 </ul>
@@ -71,14 +81,14 @@ Hashem Nasarat
     [ * message         ]
     [___________________]</code></pre>
 </div>
-<div class="section slide level1" id="git-local-and-remote-repositories">
-<h1>Git: Local and Remote Repositories</h1>
-<h2 id="basic-usage-local-remote-repository">Basic Usage (local + remote repository)</h2>
+<div class="section titleslide slide level1" id="git-local-and-remote-repositories"><h1>Git: Local and Remote Repositories</h1></div><div class="section slide level2" id="basic-usage-local-remote-repository">
+<h1>Basic Usage (local + remote repository)</h1>
 <ul class="incremental">
 <li>Git repositories can be synchronized between multiple local and multiple remote computers (e.g. your laptop, halligan, and GitHub).
 <ul class="incremental">
 <li>A repository’s <code>.git/config</code> file has details</li>
 <li>Default remote name is <code>origin</code></li>
+<li><em>git remote add origin https://github.com/Hnasar/test.git</em></li>
 </ul></li>
 <li>GitHub offers public remote repositories</li>
 <li>Local and remote repositories has benefits:
@@ -92,7 +102,8 @@ Hashem Nasarat
 <li>Combining some changes requires intervention (a conflict)</li>
 </ul></li>
 </ul>
-<h2 id="remote-initial-state">Remote: Initial State</h2>
+</div><div class="section slide level2" id="remote-initial-state">
+<h1>Remote: Initial State</h1>
 <ul>
 <li>Empty remote, new repository</li>
 </ul>
@@ -103,7 +114,8 @@ Hashem Nasarat
     [ *  ]          [    ]
     [ *  ]          [    ]
     [____]          [____]</code></pre>
-<h2 id="remote-updating-the-remote">Remote: Updating the remote</h2>
+</div><div class="section slide level2" id="remote-updating-the-remote">
+<h1>Remote: Updating the remote</h1>
 <ul>
 <li>Update the remote with local changes with <code>git push</code></li>
 </ul>
@@ -114,7 +126,8 @@ Hashem Nasarat
     [ *  ]          [ *  ]
     [ *  ]          [ *  ]
     [____]          [____]</code></pre>
-<h2 id="remote-creating-a-new-local">Remote: Creating a new local</h2>
+</div><div class="section slide level2" id="remote-creating-a-new-local">
+<h1>Remote: Creating a new local</h1>
 <ul>
 <li>Download an entire remote repository to a new local copy with <code>git clone</code></li>
 </ul>
@@ -125,7 +138,8 @@ Hashem Nasarat
     [ *  ]          [ *  ]           [ *  ]
     [ *  ]          [ *  ]           [ *  ]
     [____]          [____]           [____]</code></pre>
-<h2 id="remote-updating-the-local">Remote: Updating the local</h2>
+</div><div class="section slide level2" id="remote-updating-the-local">
+<h1>Remote: Updating the local</h1>
 <ul>
 <li>Update local repositories with remote changes with <code>git pull</code></li>
 </ul>
@@ -141,7 +155,8 @@ Hashem Nasarat
 <li><em><code>git pull</code> is usually bad form. Use <code>git pull --rebase</code></em></li>
 <li>Read <a href="http://blog.experimentalworks.net/2009/03/merge-vs-rebase-a-deep-dive-into-the-mysteries-of-revision-control/">this article</a> for more info.</li>
 </ul>
-<h2 id="interlude-setting-up-github-user-pages">Interlude: Setting up GitHub User Pages</h2>
+</div><div class="section slide level2" id="interlude-setting-up-github-user-pages">
+<h1>Interlude: Setting up GitHub User Pages</h1>
 <ul class="incremental">
 <li>User pages: a GitHub feature that exposes a specific repository in your account as a website.</li>
 <li>Email account must be verified.</li>
@@ -150,20 +165,23 @@ Hashem Nasarat
 <li>If you can’t get it to work, delete the repo and recreate it.</li>
 <li>E.g. My GitHub username is <em>hnasar</em>. My “User Pages” repository is called <code>hnasar.github.com</code>, and it’s accessible <a href="http://hnasar.github.com/">here</a></li>
 </ul>
-<h2 id="viewing-a-repository-1">Viewing a Repository 1</h2>
+</div><div class="section slide level2" id="viewing-a-repository-1">
+<h1>Viewing a Repository 1</h1>
 <ul class="incremental">
 <li><code>gitk --all</code></li>
 <li><img src="gitk.png" alt="gitk" /></li>
 <li>available on halligan, Ubuntu/Debian, <a href="http://mxcl.github.com/homebrew/">homebrew</a></li>
 </ul>
-<h2 id="viewing-a-repository-2">Viewing a Repository 2</h2>
+</div><div class="section slide level2" id="viewing-a-repository-2">
+<h1>Viewing a Repository 2</h1>
 <ul class="incremental">
 <li><code>git log --graph --oneline --all --decorate</code></li>
 <li>mnemonic: (git log g.o.a.d.), goad, meaning it’s annoying to type all that</li>
 <li>(Shortcut: <code>Ctrl + r</code>, then start typing <code>git log --graph</code> …)</li>
 <li><img src="git-log-goad.png" title="fig:" alt="git log goad" /></li>
 </ul>
-<h2 id="what-next">What next?</h2>
+</div><div class="section slide level2" id="what-next">
+<h1>What next?</h1>
 <ul class="incremental">
 <li>Lots of potential topics. What are you interested in?</li>
 <li>Committing and good commit style</li>
@@ -174,9 +192,8 @@ Hashem Nasarat
 <li>Questions from the audience</li>
 </ul>
 </div>
-<div class="section slide level1" id="committing-and-good-commit-style">
-<h1>Committing and Good Commit Style</h1>
-<h2 id="adding-and-committing">Adding and Committing</h2>
+<div class="section titleslide slide level1" id="committing-and-good-commit-style"><h1>Committing and Good Commit Style</h1></div><div class="section slide level2" id="adding-and-committing">
+<h1>Adding and Committing</h1>
 <ul class="incremental">
 <li>Commits are the basic unit of a repository</li>
 <li>Mark a new state of files at a point in time</li>
@@ -191,7 +208,8 @@ Hashem Nasarat
 <li>Before a commit is made, <code>git reset</code> (without any arguments!) will undo <code>git add</code></li>
 <li><code>git commit</code> (with no arguments) will open <em>vim</em>. To save and quit, type <code>:wq</code></li>
 </ul>
-<h2 id="commit-style">Commit Style</h2>
+</div><div class="section slide level2" id="commit-style">
+<h1>Commit Style</h1>
 <ul>
 <li>A good commit will contain only the changes necessary to some new feature of a repository.</li>
 </ul>
@@ -211,9 +229,8 @@ and the HTML 5 specification, every img should have an alt
 attribute which &quot;provides equivalent content for those who
 cannot process images or who have image loading disabled&quot;.</code></pre>
 </div>
-<div class="section slide level1" id="undoing-commits-and-fixing-things">
-<h1>Undoing Commits and Fixing Things</h1>
-<h2 id="git-reset">Git reset</h2>
+<div class="section titleslide slide level1" id="undoing-commits-and-fixing-things"><h1>Undoing Commits and Fixing Things</h1></div><div class="section slide level2" id="git-reset">
+<h1>Git reset</h1>
 <ul class="incremental">
 <li><code>git reset --hard</code> <em>&lt;commit&gt;</em>
 <ul class="incremental">
@@ -222,17 +239,20 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
 <li>Moves branch label, and HEAD to commit specified</li>
 </ul></li>
 </ul>
-<h2 id="git-reset-example">Git reset example</h2>
+</div><div class="section slide level2" id="git-reset-example">
+<h1>Git reset example</h1>
 <pre><code>    * 31a3f57 (HEAD, master) Third commit
     * 20ea82d Second commit
     * 9ef5cfb First commit</code></pre>
 <ul class="incremental">
 <li><code>git reset --hard 20ea82d</code></li>
 </ul>
-<h2 id="git-reset-example-1">Git reset example</h2>
+</div><div class="section slide level2" id="git-reset-example-1">
+<h1>Git reset example</h1>
 <pre><code>    * 20ea82d (HEAD, master) Second commit
     * 9ef5cfb First commit</code></pre>
-<h2 id="un-undoing-commits">Un-undoing Commits</h2>
+</div><div class="section slide level2" id="un-undoing-commits">
+<h1>Un-undoing Commits</h1>
 <ul>
 <li>Commits are only truly deleted after a given time passes (several days)</li>
 </ul>
@@ -251,7 +271,8 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
 <ul class="incremental">
 <li><code>git reset --hard 31a3f57</code></li>
 </ul>
-<h2 id="un-undoing-commits-1">Un-undoing Commits</h2>
+</div><div class="section slide level2" id="un-undoing-commits-1">
+<h1>Un-undoing Commits</h1>
 <ul>
 <li><em>Back to the start!</em></li>
 </ul>
@@ -259,9 +280,8 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
     * 20ea82d Second commit
     * 9ef5cfb First commit</code></pre>
 </div>
-<div class="section slide level1" id="working-with-branches">
-<h1>Working with Branches</h1>
-<h2 id="branches">Branches</h2>
+<div class="section titleslide slide level1" id="working-with-branches"><h1>Working with Branches</h1></div><div class="section slide level2" id="branches">
+<h1>Branches</h1>
 <ul>
 <li>Branches allow multiple lines of commits, which may be dealing with differing features, to not overlap (which might cause confusion).</li>
 </ul>
@@ -276,7 +296,8 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
     * | b6d7003 Implements sequencePatches
     |/
     * 6f2a864 Paralell patch changes</code></pre>
-<h2 id="using-branches">Using Branches</h2>
+</div><div class="section slide level2" id="using-branches">
+<h1>Using Branches</h1>
 <ul class="incremental">
 <li>Create a branch with <code>git branch</code> <em>&lt;branch-name&gt;</em></li>
 <li>Delete a branch with <code>git branch -d</code> <em>&lt;branch-name&gt;</em></li>
@@ -284,7 +305,8 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
 <li>When you commit, the new commit’s parent is the tip of the current branch, and the branch will now point to the new commit.</li>
 <li><a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a></li>
 </ul>
-<h2 id="combining-branches">Combining Branches</h2>
+</div><div class="section slide level2" id="combining-branches">
+<h1>Combining Branches</h1>
 <ol class="incremental" style="list-style-type: decimal">
 <li><code>git merge</code> <em>&lt;branch to merge in&gt;</em>
 <ul class="incremental">
@@ -310,8 +332,7 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
     * 0bbe999 Implements applyPatch
     * b6d7003 Implements sequencePatches
     * 6f2a864 Paralell patch changes</code></pre>
-</div>
-<div class="section slide level1" id="conflicts">
+</div><div class="section slide level2" id="conflicts">
 <h1>Conflicts</h1>
 <ul class="incremental">
 <li>Git is smart about what lines changed in which files in a commit</li>
@@ -320,9 +341,8 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
 <li>Make the file look how you want, then do <code>git add .</code> and <code>git commit</code></li>
 </ul>
 </div>
-<div class="section slide level1" id="github-forking-and-pull-requests">
-<h1>GitHub Forking and Pull Requests</h1>
-<h2 id="github-forking">GitHub: Forking</h2>
+<div class="section titleslide slide level1" id="github-forking-and-pull-requests"><h1>GitHub Forking and Pull Requests</h1></div><div class="section slide level2" id="github-forking">
+<h1>GitHub: Forking</h1>
 <ul>
 <li>GitHub “Forking” is something GitHub invented (not a part of git)</li>
 </ul>
@@ -338,7 +358,8 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
     [ *  ]  -----&gt;  [ *  ]
     [ *  ]          [ *  ]
     [____]          [____]</code></pre>
-<h2 id="github-pull-request">GitHub: Pull Request</h2>
+</div><div class="section slide level2" id="github-pull-request">
+<h1>GitHub: Pull Request</h1>
 <ul>
 <li>Typically, free software software developers share patches (modifications to code, try <code>git format-patch</code> <em>&lt;commit&gt;</em>) via email or posting on websites.</li>
 </ul>
@@ -356,10 +377,18 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
     [ *  ] request [ *  ] 
     [ *  ]         [ *  ] 
     [____]         [____]</code></pre>
+</div><div class="section slide level2" id="github-no-passwords">
+<h1>GitHub: No passwords</h1>
+<ul class="incremental">
+<li>Possible to use GitHub without typing in username &amp; password each time</li>
+<li><a href="https://help.github.com/articles/generating-ssh-keys#platform-windows">Set up SSH keys</a></li>
+<li>Make sure that your remote URIs are set to <code>git@github.com/</code>…</li>
+<li><img src="ssh-github.png" alt="Proper GitHub URI" /></li>
+<li>Check a repository’s <code>.git/config</code> file</li>
+</ul>
 </div>
-<div class="section slide level1" id="time-travel">
-<h1>Time Travel</h1>
-<h2 id="checkout-blame">Checkout &amp; Blame</h2>
+<div class="section titleslide slide level1" id="time-travel"><h1>Time Travel</h1></div><div class="section slide level2" id="checkout-blame">
+<h1>Checkout &amp; Blame</h1>
 <ul class="incremental">
 <li>checkout moves HEAD (the current commit, and the corresponding state of the files)</li>
 <li>(remember <code>git log --graph --oneline --all --decorate</code>)</li>
@@ -372,11 +401,10 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
 <li><code>git show</code> <em>&lt;commit&gt;</em> displays the contents of a given commit.</li>
 </ul>
 </div>
-<div class="section slide level1" id="end">
-<h1>End</h1>
-<h2 id="questionscomments">Questions/Comments</h2>
+<div class="section titleslide slide level1" id="end"><h1>End</h1></div><div class="section slide level2" id="questionscomments">
+<h1>Questions/Comments</h1>
 <ul class="incremental">
-<li>Unclear?</li>
+<li>Still unclear?</li>
 <li>Did I miss something?</li>
 </ul>
 </div>

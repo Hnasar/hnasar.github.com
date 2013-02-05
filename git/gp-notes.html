@@ -25,6 +25,15 @@
 <li>Started by the Linus Torvals, who also started the Linux kernel</li>
 <li>Git <span class="math"> ≠ </span> GitHub, though <a href="https://github.com/git/git">Git's code</a> is available there.</li>
 </ul>
+<h2 id="using-git">Using Git</h2>
+<ul>
+<li>Read the manual</li>
+<li><code>git help</code> <em>&lt;command&gt;</em>
+<ul>
+<li>Warning: the documentation is pretty gross</li>
+</ul></li>
+<li>The following are the most useful bits of git knowledge I've picked up over the years.</li>
+</ul>
 <h1 id="git-local-repository-only">Git: Local Repository Only</h1>
 <h2 id="basic-usage-local-repository">Basic Usage (local repository)</h2>
 <blockquote>
@@ -69,6 +78,7 @@
 <ul>
 <li>A repository's <code>.git/config</code> file has details</li>
 <li>Default remote name is <code>origin</code></li>
+<li><em>git remote add origin https://github.com/Hnasar/test.git</em></li>
 </ul></li>
 <li>GitHub offers public remote repositories</li>
 <li>Local and remote repositories has benefits:
@@ -310,7 +320,7 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
     * 0bbe999 Implements applyPatch
     * b6d7003 Implements sequencePatches
     * 6f2a864 Paralell patch changes</code></pre>
-<h1 id="conflicts">Conflicts</h1>
+<h2 id="conflicts">Conflicts</h2>
 <ul>
 <li>Git is smart about what lines changed in which files in a commit</li>
 <li>Some commits indicate contradicting changes.</li>
@@ -356,6 +366,14 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
     [ *  ] request [ *  ] 
     [ *  ]         [ *  ] 
     [____]         [____]</code></pre>
+<h2 id="github-no-passwords">GitHub: No passwords</h2>
+<ul>
+<li>Possible to use GitHub without typing in username &amp; password each time</li>
+<li><a href="https://help.github.com/articles/generating-ssh-keys#platform-windows">Set up SSH keys</a></li>
+<li>Make sure that your remote URIs are set to <code>git@github.com/</code>...</li>
+<li><img src="ssh-github.png" alt="Proper GitHub URI" /></li>
+<li>Check a repository's <code>.git/config</code> file</li>
+</ul>
 <h1 id="time-travel">Time Travel</h1>
 <h2 id="checkout-blame">Checkout &amp; Blame</h2>
 <ul>
@@ -372,7 +390,7 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
 <h1 id="end">End</h1>
 <h2 id="questionscomments">Questions/Comments</h2>
 <ul>
-<li>Unclear?</li>
+<li>Still unclear?</li>
 <li>Did I miss something?</li>
 </ul>
 </body>
