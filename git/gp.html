@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Hashem Nasarat" />
+  <title>Using Git: An Overview for Comp 20</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js.gz"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Using Git: An Overview for Comp 20</h1>
+  <p class="author">
+Hashem Nasarat
+  </p>
+  <p class="date">February 4, 2013</p>
+</div>
+<div class="section slide level1">
+
+<h2 id="what-is-git">What is git?</h2>
+<ul class="incremental">
+<li>Git: Version Control System (VCS)</li>
+<li>Distributed: Lives on more than one computer</li>
+<li>Keeps track of snapshots of a directory: [VCS] repository = files + history</li>
+<li><a href="http://www.gnu.org/philosophy/philosophy.html">Free software</a></li>
+<li>Really complex (300,000 lines of code, written in C, Bash, and Perl)</li>
+<li>Really useful (helps keep track of what you do, so you make fewer mistakes)</li>
+<li>Started by the Linus Torvals, who also started the Linux kernel</li>
+<li>Git <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Cneq" alt="\neq" title="\neq" /> GitHub, though <a href="https://github.com/git/git">Git’s code</a> is available there.</li>
+</ul>
+</div>
+<div class="section slide level1" id="git-local-repository-only">
+<h1>Git: Local Repository Only</h1>
+<h2 id="basic-usage-local-repository">Basic Usage (local repository)</h2>
+<ul>
+<li><code>git init</code> – Create a repository</li>
+</ul>
+<pre><code>    repo   files
+     ___
+    [   ]   *
+    [___]</code></pre>
+<ul class="incremental">
+<li><code>git add</code> – I want you to record the state of the following files</li>
+</ul>
+<pre><code>     ___
+    [ * ]
+    [___]</code></pre>
+<ul class="incremental">
+<li><code>git commit</code> – Actually do it. (And attach a message describing changes)</li>
+</ul>
+<pre><code>     __________________
+    [ * (HEAD) message ]
+    [__________________]</code></pre>
+<ul class="incremental">
+<li><strong>HEAD</strong>: the current commit</li>
+</ul>
+<h2 id="basic-usage-local-repository-1">Basic Usage (local repository)</h2>
+<ul>
+<li><em>rinse, repeat</em></li>
+</ul>
+<pre><code>     ___________________
+    [ * (HEAD) message3 ]
+    [ * message2        ]
+    [ * message         ]
+    [___________________]</code></pre>
+</div>
+<div class="section slide level1" id="git-local-and-remote-repositories">
+<h1>Git: Local and Remote Repositories</h1>
+<h2 id="basic-usage-local-remote-repository">Basic Usage (local + remote repository)</h2>
+<ul class="incremental">
+<li>Git repositories can be synchronized between multiple local and multiple remote computers (e.g. your laptop, halligan, and GitHub).
+<ul class="incremental">
+<li>A repository’s <code>.git/config</code> file has details</li>
+<li>Default remote name is <code>origin</code></li>
+</ul></li>
+<li>GitHub offers public remote repositories</li>
+<li>Local and remote repositories has benefits:
+<ul class="incremental">
+<li>Work on stuff without an Internet connection</li>
+<li>Work on a project from different computers</li>
+</ul></li>
+<li>Added complexity:
+<ul class="incremental">
+<li>Manually keep changes synchronized.</li>
+<li>Combining some changes requires intervention (a conflict)</li>
+</ul></li>
+</ul>
+<h2 id="remote-initial-state">Remote: Initial State</h2>
+<ul>
+<li>Empty remote, new repository</li>
+</ul>
+<pre><code>     local           remote
+    (laptop)        (GitHub)
+     ____            ____
+    [ *  ]          [    ]
+    [ *  ]          [    ]
+    [ *  ]          [    ]
+    [____]          [____]</code></pre>
+<h2 id="remote-updating-the-remote">Remote: Updating the remote</h2>
+<ul>
+<li>Update the remote with local changes with <code>git push</code></li>
+</ul>
+<pre><code>     local           remote
+    (laptop)        (GitHub)
+     ____    push    ____
+    [ *  ]  -----&gt;  [ *  ]
+    [ *  ]          [ *  ]
+    [ *  ]          [ *  ]
+    [____]          [____]</code></pre>
+<h2 id="remote-creating-a-new-local">Remote: Creating a new local</h2>
+<ul>
+<li>Download an entire remote repository to a new local copy with <code>git clone</code></li>
+</ul>
+<pre><code>     local           remote         local
+     (laptop)       (GitHub)        (halligan)
+     ____            ____    clone    ____
+    [ *  ]          [ *  ]  ------&gt;  [ *  ]
+    [ *  ]          [ *  ]           [ *  ]
+    [ *  ]          [ *  ]           [ *  ]
+    [____]          [____]           [____]</code></pre>
+<h2 id="remote-updating-the-local">Remote: Updating the local</h2>
+<ul>
+<li>Update local repositories with remote changes with <code>git pull</code></li>
+</ul>
+<pre><code>     local           remote         local
+     (laptop)       (GitHub)        (halligan)
+     ____            ____             ____
+    [ *  ]  (push)  [ *  ]   pull    [ *  ]
+    [ *  ]  -----&gt;  [ *  ]  ------&gt;  [ *  ]
+    [ *  ]          [ *  ]           [ *  ]
+    [ *  ]          [ *  ]           [ *  ]
+    [____]          [____]           [____]</code></pre>
+<ul class="incremental">
+<li><em><code>git pull</code> is usually bad form. Use <code>git pull --rebase</code></em></li>
+<li>Read <a href="http://blog.experimentalworks.net/2009/03/merge-vs-rebase-a-deep-dive-into-the-mysteries-of-revision-control/">this article</a> for more info.</li>
+</ul>
+<h2 id="interlude-setting-up-github-user-pages">Interlude: Setting up GitHub User Pages</h2>
+<ul class="incremental">
+<li>User pages: a GitHub feature that exposes a specific repository in your account as a website.</li>
+<li>Email account must be verified.</li>
+<li>Repository must be named: <em>username</em><code>.github.com</code></li>
+<li>10 minutes needed before the page will load</li>
+<li>If you can’t get it to work, delete the repo and recreate it.</li>
+<li>E.g. My GitHub username is <em>hnasar</em>. My “User Pages” repository is called <code>hnasar.github.com</code>, and it’s accessible <a href="http://hnasar.github.com/">here</a></li>
+</ul>
+<h2 id="viewing-a-repository-1">Viewing a Repository 1</h2>
+<ul class="incremental">
+<li><code>gitk --all</code></li>
+<li><img src="gitk.png" alt="gitk" /></li>
+<li>available on halligan, Ubuntu/Debian, <a href="http://mxcl.github.com/homebrew/">homebrew</a></li>
+</ul>
+<h2 id="viewing-a-repository-2">Viewing a Repository 2</h2>
+<ul class="incremental">
+<li><code>git log --graph --oneline --all --decorate</code></li>
+<li>mnemonic: (git log g.o.a.d.), goad, meaning it’s annoying to type all that</li>
+<li>(Shortcut: <code>Ctrl + r</code>, then start typing <code>git log --graph</code> …)</li>
+<li><img src="git-log-goad.png" title="fig:" alt="git log goad" /></li>
+</ul>
+<h2 id="what-next">What next?</h2>
+<ul class="incremental">
+<li>Lots of potential topics. What are you interested in?</li>
+<li>Committing and good commit style</li>
+<li>Undoing commits and fixing things</li>
+<li>Working with branches</li>
+<li>GitHub forking and pull requests</li>
+<li>Time travel</li>
+<li>Questions from the audience</li>
+</ul>
+</div>
+<div class="section slide level1" id="committing-and-good-commit-style">
+<h1>Committing and Good Commit Style</h1>
+<h2 id="adding-and-committing">Adding and Committing</h2>
+<ul class="incremental">
+<li>Commits are the basic unit of a repository</li>
+<li>Mark a new state of files at a point in time</li>
+<li>Commit message message indicates to viewers what the changes in the commit did.</li>
+<li>(Use <code>git diff</code> to see what was changed from the last commit)</li>
+<li>2-part command
+<ol class="incremental" style="list-style-type: decimal">
+<li><code>git add</code> <em>&lt;path[s]&gt;</em> – record these changes in the next commit</li>
+<li><code>git commit</code> – make the commit, and add a message</li>
+</ol></li>
+<li>(try <code>git add -p</code> to select exactly which changes within files are added)</li>
+<li>Before a commit is made, <code>git reset</code> (without any arguments!) will undo <code>git add</code></li>
+<li><code>git commit</code> (with no arguments) will open <em>vim</em>. To save and quit, type <code>:wq</code></li>
+</ul>
+<h2 id="commit-style">Commit Style</h2>
+<ul>
+<li>A good commit will contain only the changes necessary to some new feature of a repository.</li>
+</ul>
+<ul class="incremental">
+<li><p>E.g. If the feature is: “ensure all <code>img</code> tags have an <code>alt</code> attribute”, a good commit will add <code>alt</code> tags for every <code>img</code> in one go, and NOT create a new commit for every changed <code>img</code> tag, or every file that I change things in.</p></li>
+<li>Good commit message form:
+<ul class="incremental">
+<li>Feature in present tense</li>
+<li>One blank line</li>
+<li>Explanation/reasoning of changes</li>
+</ul></li>
+</ul>
+<pre><code>Add alt attribute to every img
+
+As per Section 508 Amendment to the Rehabilitation Act of 1973
+and the HTML 5 specification, every img should have an alt
+attribute which &quot;provides equivalent content for those who
+cannot process images or who have image loading disabled&quot;.</code></pre>
+</div>
+<div class="section slide level1" id="undoing-commits-and-fixing-things">
+<h1>Undoing Commits and Fixing Things</h1>
+<h2 id="git-reset">Git reset</h2>
+<ul class="incremental">
+<li><code>git reset --hard</code> <em>&lt;commit&gt;</em>
+<ul class="incremental">
+<li>DANGEROUS – you will lose any <strong>uncommitted</strong> changes</li>
+<li>used to undo commits</li>
+<li>Moves branch label, and HEAD to commit specified</li>
+</ul></li>
+</ul>
+<h2 id="git-reset-example">Git reset example</h2>
+<pre><code>    * 31a3f57 (HEAD, master) Third commit
+    * 20ea82d Second commit
+    * 9ef5cfb First commit</code></pre>
+<ul class="incremental">
+<li><code>git reset --hard 20ea82d</code></li>
+</ul>
+<h2 id="git-reset-example-1">Git reset example</h2>
+<pre><code>    * 20ea82d (HEAD, master) Second commit
+    * 9ef5cfb First commit</code></pre>
+<h2 id="un-undoing-commits">Un-undoing Commits</h2>
+<ul>
+<li>Commits are only truly deleted after a given time passes (several days)</li>
+</ul>
+<ul class="incremental">
+<li><code>git reflog</code>
+<ul class="incremental">
+<li>displays most recent commits which have been HEAD</li>
+</ul></li>
+</ul>
+<pre><code>    20ea82d HEAD@{0}: reset: moving to HEAD~1
+    31a3f57 HEAD@{1}: checkout: moving from 20ea82d to master
+    20ea82d HEAD@{2}: checkout: moving from master to HEAD~1
+    31a3f57 HEAD@{3}: commit: Third commit
+    20ea82d HEAD@{4}: commit: Second commit
+    9ef5cfb HEAD@{5}: commit (initial): First commit</code></pre>
+<ul class="incremental">
+<li><code>git reset --hard 31a3f57</code></li>
+</ul>
+<h2 id="un-undoing-commits-1">Un-undoing Commits</h2>
+<ul>
+<li><em>Back to the start!</em></li>
+</ul>
+<pre><code>    * 31a3f57 (HEAD, master) Third commit
+    * 20ea82d Second commit
+    * 9ef5cfb First commit</code></pre>
+</div>
+<div class="section slide level1" id="working-with-branches">
+<h1>Working with Branches</h1>
+<h2 id="branches">Branches</h2>
+<ul>
+<li>Branches allow multiple lines of commits, which may be dealing with differing features, to not overlap (which might cause confusion).</li>
+</ul>
+<ul class="incremental">
+<li>A branch is a label attached to a commit.</li>
+<li>Default branch name is <code>master</code></li>
+<li>View branches (including the current one) with <code>git branch -a</code></li>
+</ul>
+<pre><code>      * 7a0fc15 Patch.hs: Fix incorrect editsToChangeHunks offsets
+      * e564f63 Make the type of Edit more general.
+    * | 0bbe999 Implements applyPatch
+    * | b6d7003 Implements sequencePatches
+    |/
+    * 6f2a864 Paralell patch changes</code></pre>
+<h2 id="using-branches">Using Branches</h2>
+<ul class="incremental">
+<li>Create a branch with <code>git branch</code> <em>&lt;branch-name&gt;</em></li>
+<li>Delete a branch with <code>git branch -d</code> <em>&lt;branch-name&gt;</em></li>
+<li>Switch branches with <code>git checkout</code> <em>&lt;branch-name&gt;</em></li>
+<li>When you commit, the new commit’s parent is the tip of the current branch, and the branch will now point to the new commit.</li>
+<li><a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a></li>
+</ul>
+<h2 id="combining-branches">Combining Branches</h2>
+<ol class="incremental" style="list-style-type: decimal">
+<li><code>git merge</code> <em>&lt;branch to merge in&gt;</em>
+<ul class="incremental">
+<li>Produces a commit with multiple parents</li>
+</ul></li>
+</ol>
+<pre><code>    *   ca5ac46 Merge branch &#39;master&#39; of github.com:jmont/nor
+    |\
+    | * 7a0fc15 Patch.hs: Fix incorrect editsToChangeHunks offsets
+    | * e564f63 Make the type of Edit more general.
+    * | 0bbe999 Implements applyPatch
+    * | b6d7003 Implements sequencePatches
+    |/
+    * 6f2a864 Paralell patch changes</code></pre>
+<ol class="incremental" start="2" style="list-style-type: decimal">
+<li><code>git rebase</code> <em>&lt;branch to rebase onto&gt;</em>
+<ul class="incremental">
+<li>Removes the branch by making the branch’s commits stem from the end of the other.</li>
+</ul></li>
+</ol>
+<pre><code>    * 7a0fc15 Patch.hs: Fix incorrect editsToChangeHunks offsets
+    * e564f63 Make the type of Edit more general.
+    * 0bbe999 Implements applyPatch
+    * b6d7003 Implements sequencePatches
+    * 6f2a864 Paralell patch changes</code></pre>
+</div>
+<div class="section slide level1" id="conflicts">
+<h1>Conflicts</h1>
+<ul class="incremental">
+<li>Git is smart about what lines changed in which files in a commit</li>
+<li>Some commits indicate contradicting changes.</li>
+<li>If git can’t figure it out, it writes both version the file, complains of a conflict and tells you to fix it.</li>
+<li>Make the file look how you want, then do <code>git add .</code> and <code>git commit</code></li>
+</ul>
+</div>
+<div class="section slide level1" id="github-forking-and-pull-requests">
+<h1>GitHub Forking and Pull Requests</h1>
+<h2 id="github-forking">GitHub: Forking</h2>
+<ul>
+<li>GitHub “Forking” is something GitHub invented (not a part of git)</li>
+</ul>
+<ul class="incremental">
+<li>GitHub “Forking” is a way to copy a remote git repo from one GitHub user to another.</li>
+<li>“fork” typically means taking an existing project, and developing it in a new direction. This is what happened when LibreOffice forked from OpenOffice and Ubuntu from Debian.</li>
+</ul>
+<pre><code>     remote          remote
+     tuftsdev/       hnasar/
+     running-dogs    running-dogs
+     ____            ____
+    [ *  ]   fork   [ *  ]
+    [ *  ]  -----&gt;  [ *  ]
+    [ *  ]          [ *  ]
+    [____]          [____]</code></pre>
+<h2 id="github-pull-request">GitHub: Pull Request</h2>
+<ul>
+<li>Typically, free software software developers share patches (modifications to code, try <code>git format-patch</code> <em>&lt;commit&gt;</em>) via email or posting on websites.</li>
+</ul>
+<ul class="incremental">
+<li>GitHub created a notion of a “Pull Request” to easily allow GitHub “Forked” projects to collaborate in a similar fashion as sharing patches.</li>
+<li><a href="http://beust.com/weblog/2010/09/15/a-quick-guide-to-pull-requests/">Good explanation</a></li>
+<li>Pull Requests must be accepted by the recipient.</li>
+</ul>
+<pre><code>     remote          remote
+     tuftsdev/       hnasar/
+     running-dogs    running-dogs
+     ____           ____
+    [_*__] &lt;------ [ *  ]
+    [ *  ]   pull  [ *  ]
+    [ *  ] request [ *  ] 
+    [ *  ]         [ *  ] 
+    [____]         [____]</code></pre>
+</div>
+<div class="section slide level1" id="time-travel">
+<h1>Time Travel</h1>
+<h2 id="checkout-blame">Checkout &amp; Blame</h2>
+<ul class="incremental">
+<li>checkout moves HEAD (the current commit, and the corresponding state of the files)</li>
+<li>(remember <code>git log --graph --oneline --all --decorate</code>)</li>
+<li><code>git checkout</code> <em>&lt;commit-hash&gt;</em> (e.g. <code>git checkout 0dc4e6e</code>)
+<ul class="incremental">
+<li>‘detached HEAD’ state, which means HEAD isn’t on a branch</li>
+<li><code>git checkout</code> a branch to “reattach” the HEAD</li>
+</ul></li>
+<li><code>git blame</code> <em>&lt;file&gt;</em> to see when and who last made changes to a part of a file.<br /></li>
+<li><code>git show</code> <em>&lt;commit&gt;</em> displays the contents of a given commit.</li>
+</ul>
+</div>
+<div class="section slide level1" id="end">
+<h1>End</h1>
+<h2 id="questionscomments">Questions/Comments</h2>
+<ul class="incremental">
+<li>Unclear?</li>
+<li>Did I miss something?</li>
+</ul>
+</div>
+</body>
+</html>

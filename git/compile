@@ -1,0 +1,5 @@
+#! /bin/sh
+
+pandoc -i --webtex -t slidy --smart -s git-presentation.md -o gp.html
+pandoc -s git-presentation.md -o gp-notes.pdf
+pandoc -s git-presentation.md -o gp-notes.html
