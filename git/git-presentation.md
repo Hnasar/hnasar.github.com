@@ -415,5 +415,7 @@ End
 
 Questions/Comments
 ------------------
+* More reference available [here](http://tuftsdev.github.com/WebProgramming/#references)
 * Still unclear?
 * Did I miss something?
+
