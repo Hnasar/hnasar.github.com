@@ -53,6 +53,7 @@ Basic Usage (local repository)
     [ * (HEAD) message ]
     [__________________]
 ~~~~~~~~~~~~~~~~~~~
+* `git commit` (with no arguments) will open *vim*. Press `i`, write the commit message, press Esc then save and quit, by typing `:wq`
 * __HEAD__: the current commit
 
 Basic Usage (local repository)
@@ -197,6 +198,8 @@ Adding and Committing
 ---------------------
 * Commits are the basic unit of a repository
 * Mark a new state of files at a point in time
+* Commits are referenced by their hash (e.g. 0dc4e6e -- see *Viewing a
+  Repository 2*, above)
 * Commit message message indicates to viewers what the changes in the commit did.
 * (Use `git diff` to see what was changed from the last commit)
 * 2-part command
@@ -205,7 +208,6 @@ Adding and Committing
 
 * (try `git add -p` to select exactly which changes within files are added)
 * Before a commit is made, `git reset` (without any arguments!) will undo `git add`
-* `git commit` (with no arguments) will open *vim*. To save and quit, type `:wq`
 
 Commit Style
 ------------

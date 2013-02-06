@@ -58,6 +58,7 @@
     [ * (HEAD) message ]
     [__________________]</code></pre>
 <ul>
+<li><code>git commit</code> (with no arguments) will open <em>vim</em>. Press <code>i</code>, write the commit message, press Esc then save and quit, by typing <code>:wq</code></li>
 <li><strong>HEAD</strong>: the current commit</li>
 </ul>
 <h2 id="basic-usage-local-repository-1">Basic Usage (local repository)</h2>
@@ -200,6 +201,7 @@
 <ul>
 <li>Commits are the basic unit of a repository</li>
 <li>Mark a new state of files at a point in time</li>
+<li>Commits are referenced by their hash (e.g. 0dc4e6e -- see <em>Viewing a Repository 2</em>, above)</li>
 <li>Commit message message indicates to viewers what the changes in the commit did.</li>
 <li>(Use <code>git diff</code> to see what was changed from the last commit)</li>
 <li>2-part command
@@ -209,7 +211,6 @@
 </ol></li>
 <li>(try <code>git add -p</code> to select exactly which changes within files are added)</li>
 <li>Before a commit is made, <code>git reset</code> (without any arguments!) will undo <code>git add</code></li>
-<li><code>git commit</code> (with no arguments) will open <em>vim</em>. To save and quit, type <code>:wq</code></li>
 </ul>
 <h2 id="commit-style">Commit Style</h2>
 <blockquote>
