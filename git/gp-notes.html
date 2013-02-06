@@ -71,6 +71,17 @@
     [ * message2        ]
     [ * message         ]
     [___________________]</code></pre>
+<h2 id="other-useful-basic-commands">Other Useful Basic Commands</h2>
+<ul>
+<li><code>git rm</code> <em>&lt;filename&gt;</em>
+<ul>
+<li>Remove a file from the repo</li>
+</ul></li>
+<li><code>git mv</code> <em>&lt;from-filename&gt;</em> <em>&lt;to-filename&gt;</em>
+<ul>
+<li>Rename a file in the repo</li>
+</ul></li>
+</ul>
 <h1 id="git-local-and-remote-repositories">Git: Local and Remote Repositories</h1>
 <h2 id="basic-usage-local-remote-repository">Basic Usage (local + remote repository)</h2>
 <ul>
@@ -324,12 +335,26 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
     * b6d7003 Implements sequencePatches
     * 6f2a864 Paralell patch changes</code></pre>
 <h2 id="conflicts">Conflicts</h2>
+<blockquote>
 <ul>
 <li>Git is smart about what lines changed in which files in a commit</li>
+</ul>
+</blockquote>
+<ul>
 <li>Some commits indicate contradicting changes.</li>
 <li>If git can't figure it out, it writes both version the file, complains of a conflict and tells you to fix it.</li>
 <li>Make the file look how you want, then do <code>git add .</code> and <code>git commit</code></li>
 </ul>
+<pre><code>    these lines
+    are not
+    in conflict
+    &lt;&lt;&lt;&lt;&lt;&lt;
+    THESE ARE IN CONFLICT!
+    ======
+    These are in conflict.
+    &gt;&gt;&gt;&gt;&gt;&gt; version 2
+    these lines
+    are good too</code></pre>
 <h1 id="github-forking-and-pull-requests">GitHub Forking and Pull Requests</h1>
 <h2 id="github-forking">GitHub: Forking</h2>
 <blockquote>
@@ -366,8 +391,8 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
      ____           ____
     [_*__] &lt;------ [ *  ]
     [ *  ]   pull  [ *  ]
-    [ *  ] request [ *  ] 
-    [ *  ]         [ *  ] 
+    [ *  ] request [ *  ]
+    [ *  ]         [ *  ]
     [____]         [____]</code></pre>
 <h2 id="github-no-passwords">GitHub: No passwords</h2>
 <ul>
@@ -387,7 +412,7 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
 <li>'detached HEAD' state, which means HEAD isn't on a branch</li>
 <li><code>git checkout</code> a branch to &quot;reattach&quot; the HEAD</li>
 </ul></li>
-<li><code>git blame</code> <em>&lt;file&gt;</em> to see when and who last made changes to a part of a file.<br /></li>
+<li><code>git blame</code> <em>&lt;file&gt;</em> to see when and who last made changes to a part of a file.</li>
 <li><code>git show</code> <em>&lt;commit&gt;</em> displays the contents of a given commit.</li>
 </ul>
 <h1 id="end">End</h1>

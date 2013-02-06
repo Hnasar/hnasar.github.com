@@ -80,6 +80,18 @@ Hashem Nasarat
     [ * message2        ]
     [ * message         ]
     [___________________]</code></pre>
+</div><div class="section slide level2" id="other-useful-basic-commands">
+<h1>Other Useful Basic Commands</h1>
+<ul class="incremental">
+<li><code>git rm</code> <em>&lt;filename&gt;</em>
+<ul class="incremental">
+<li>Remove a file from the repo</li>
+</ul></li>
+<li><code>git mv</code> <em>&lt;from-filename&gt;</em> <em>&lt;to-filename&gt;</em>
+<ul class="incremental">
+<li>Rename a file in the repo</li>
+</ul></li>
+</ul>
 </div>
 <div class="section titleslide slide level1" id="git-local-and-remote-repositories"><h1>Git: Local and Remote Repositories</h1></div><div class="section slide level2" id="basic-usage-local-remote-repository">
 <h1>Basic Usage (local + remote repository)</h1>
@@ -337,12 +349,24 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
     * 6f2a864 Paralell patch changes</code></pre>
 </div><div class="section slide level2" id="conflicts">
 <h1>Conflicts</h1>
-<ul class="incremental">
+<ul>
 <li>Git is smart about what lines changed in which files in a commit</li>
+</ul>
+<ul class="incremental">
 <li>Some commits indicate contradicting changes.</li>
 <li>If git can’t figure it out, it writes both version the file, complains of a conflict and tells you to fix it.</li>
 <li>Make the file look how you want, then do <code>git add .</code> and <code>git commit</code></li>
 </ul>
+<pre><code>    these lines
+    are not
+    in conflict
+    &lt;&lt;&lt;&lt;&lt;&lt;
+    THESE ARE IN CONFLICT!
+    ======
+    These are in conflict.
+    &gt;&gt;&gt;&gt;&gt;&gt; version 2
+    these lines
+    are good too</code></pre>
 </div>
 <div class="section titleslide slide level1" id="github-forking-and-pull-requests"><h1>GitHub Forking and Pull Requests</h1></div><div class="section slide level2" id="github-forking">
 <h1>GitHub: Forking</h1>
@@ -377,8 +401,8 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
      ____           ____
     [_*__] &lt;------ [ *  ]
     [ *  ]   pull  [ *  ]
-    [ *  ] request [ *  ] 
-    [ *  ]         [ *  ] 
+    [ *  ] request [ *  ]
+    [ *  ]         [ *  ]
     [____]         [____]</code></pre>
 </div><div class="section slide level2" id="github-no-passwords">
 <h1>GitHub: No passwords</h1>
@@ -400,7 +424,7 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
 <li>‘detached HEAD’ state, which means HEAD isn’t on a branch</li>
 <li><code>git checkout</code> a branch to “reattach” the HEAD</li>
 </ul></li>
-<li><code>git blame</code> <em>&lt;file&gt;</em> to see when and who last made changes to a part of a file.<br /></li>
+<li><code>git blame</code> <em>&lt;file&gt;</em> to see when and who last made changes to a part of a file.</li>
 <li><code>git show</code> <em>&lt;commit&gt;</em> displays the contents of a given commit.</li>
 </ul>
 </div>

@@ -67,6 +67,13 @@ Basic Usage (local repository)
     [___________________]
 ~~~~~~~~~~~~~~~~~~~
 
+Other Useful Basic Commands
+---------------------------
+* `git rm` *\<filename\>*
+    * Remove a file from the repo
+* `git mv` *\<from-filename\>* *\<to-filename\>*
+    * Rename a file in the repo
+
 Git: Local and Remote Repositories
 ==================================
 
@@ -204,7 +211,7 @@ Commit Style
 ------------
 > * A good commit will contain only the changes necessary to some new feature
   of a repository.
-  
+
 * E.g. If the feature is: "ensure all `img` tags have an `alt` attribute", a good commit will add `alt` tags for every `img` in one go, and NOT create a new commit for every changed `img` tag, or every file that I change things in.
 
 * Good commit message form:
@@ -226,7 +233,7 @@ Undoing Commits and Fixing Things
 
 Git reset
 ---------
-* `git reset --hard` *\<commit\>* 
+* `git reset --hard` *\<commit\>*
     * DANGEROUS -- you will lose any __uncommitted__ changes
     * used to undo commits
     * Moves branch label, and HEAD to commit specified
@@ -336,11 +343,25 @@ Combining Branches
 
 Conflicts
 ---------
-* Git is smart about what lines changed in which files in a commit
+> * Git is smart about what lines changed in which files in a commit
+
 * Some commits indicate contradicting changes.
 * If git can't figure it out, it writes both version the file, complains of a
   conflict and tells you to fix it.
 * Make the file look how you want, then do `git add .` and `git commit`
+
+~~~~~~~~~~~~~~~~~~~~~~
+    these lines
+    are not
+    in conflict
+    <<<<<<
+    THESE ARE IN CONFLICT!
+    ======
+    These are in conflict.
+    >>>>>> version 2
+    these lines
+    are good too
+~~~~~~~~~~~~~~~~~~~~~~
 
 GitHub Forking and Pull Requests
 ================================
@@ -365,12 +386,12 @@ GitHub: Forking
 
 GitHub: Pull Request
 --------------------
-> * Typically, free software software developers share patches (modifications to code, try `git format-patch` *\<commit\>*) via email or posting on websites. 
+> * Typically, free software software developers share patches (modifications to code, try `git format-patch` *\<commit\>*) via email or posting on websites.
 
 * GitHub created a notion of a "Pull Request" to easily allow GitHub "Forked"
   projects to collaborate in a similar fashion as sharing patches.
 * [Good explanation](http://beust.com/weblog/2010/09/15/a-quick-guide-to-pull-requests/)
-* Pull Requests must be accepted by the recipient. 
+* Pull Requests must be accepted by the recipient.
 
 ~~~~~~~~~~~~~~~~~~~
      remote          remote
@@ -379,8 +400,8 @@ GitHub: Pull Request
      ____           ____
     [_*__] <------ [ *  ]
     [ *  ]   pull  [ *  ]
-    [ *  ] request [ *  ] 
-    [ *  ]         [ *  ] 
+    [ *  ] request [ *  ]
+    [ *  ]         [ *  ]
     [____]         [____]
 ~~~~~~~~~~~~~~~~~~~
 
@@ -391,9 +412,6 @@ GitHub: No passwords
 * Make sure that your remote URIs are set to `git@github.com/`...
 * ![Proper GitHub URI](ssh-github.png)
 * Check a repository's `.git/config` file
-
-
-
 
 Time Travel
 ===========
@@ -407,7 +425,7 @@ Checkout & Blame
     * 'detached HEAD' state, which means HEAD isn't on a branch
     * `git checkout` a branch to "reattach" the HEAD
 * `git blame` *\<file\>* to see when and who last made changes to a part of a
-  file.  
+  file.
 * `git show` *\<commit\>* displays the contents of a given commit.
 
 End
