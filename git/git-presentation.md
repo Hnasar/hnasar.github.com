@@ -1,6 +1,6 @@
-% Using Git: An Overview for Comp 20
+% Using Git: An Overview
 % Hashem Nasarat
-% February 4, 2013
+% February 15, 2013
 
 What is git?
 ------------
@@ -22,7 +22,11 @@ Using Git
 * `git help` *\<command\>*
     * Warning: the documentation is pretty gross
 * The following are the most useful bits of git knowledge I've picked up over
-  the years.
+  the years, starting from the basics.
+* If you're experienced with the basics of git (*add, commit, push, pull*) and
+  you don't want a refresher, you could try digging a little deeper with
+  [Git From The Bottom Up](ftp.newartisans.com/pub/git.from.bottom.up.pdf)
+  for a few minutes.
 
 Git: Local Repository Only
 ==========================
@@ -78,13 +82,21 @@ Other Useful Basic Commands
 Git: Local and Remote Repositories
 ==================================
 
+GitHub Basics
+-------------
+* Git repositories can be synchronized between multiple local and multiple remote computers (e.g. your laptop, halligan, and GitHub).
+* GitHub offers public remote repositories
+* Remote repositories allow distributed development
+* Get set up [here](github.com)
+    1. Create an account
+    2. Create a GitHub repo
+    3. Follow the directions (git remote add origin *blah*, and  git push -u origin master)
+
 Basic Usage (local + remote repository)
 ---------------------------------------
-* Git repositories can be synchronized between multiple local and multiple remote computers (e.g. your laptop, halligan, and GitHub).
-    * A repository's `.git/config` file has details
-    * Default remote name is `origin`
-    * *git remote add origin https://github.com/Hnasar/test.git*
-* GitHub offers public remote repositories
+* A repository's `.git/config` file has details
+* Default remote name is `origin`
+* *git remote add origin https://github.com/Hnasar/test.git*
 * Local and remote repositories has benefits:
     * Work on stuff without an Internet connection
     * Work on a project from different computers
@@ -156,17 +168,6 @@ Remote: Updating the local
 * *`git pull` is usually bad form. Use `git pull --rebase`*
 * Read [this article](http://blog.experimentalworks.net/2009/03/merge-vs-rebase-a-deep-dive-into-the-mysteries-of-revision-control/) for more info.
 
-
-Interlude: Setting up GitHub User Pages
-----------------------------------------
-* User pages: a GitHub feature that exposes a specific repository in your account as a website.
-* Email account must be verified.
-* Repository must be named: *username*`.github.com`
-* 10 minutes needed before the page will load
-* If you can't get it to work, delete the repo and recreate it.
-* E.g. My GitHub username is *hnasar*. My "User Pages" repository is called
-  `hnasar.github.com`, and it's accessible [here](http://hnasar.github.com/)
-
 Viewing a Repository 1
 ----------------------
 * `gitk --all`
@@ -180,16 +181,6 @@ Viewing a Repository 2
 * mnemonic: (git log g.o.a.d.), goad, meaning it's annoying to type all that
 * (Shortcut: `Ctrl + r`, then start typing `git log --graph` ...)
 * ![git log goad](git-log-goad.png)
-
-What next?
-----------
-* Lots of potential topics. What are you interested in?
-* Committing and good commit style
-* Undoing commits and fixing things
-* Working with branches
-* GitHub forking and pull requests
-* Time travel
-* Questions from the audience
 
 Committing and Good Commit Style
 ================================
@@ -430,6 +421,23 @@ Checkout & Blame
   file.
 * `git show` *\<commit\>* displays the contents of a given commit.
 
+Commit-ishs
+-----------
+* __commit-ish__: some way to reference commits
+    * branch-name
+    * commit-hash
+    * relationships
+* '~' - ancestor (defaults to ~1)
+* Ex: HEAD~2 (parent of parent of current commit)
+
+Rewriting History
+-----------------
+* `git rebase -i` *\<commit-ish\>*
+* reorder, delete, squash commits
+* Used to make it look like you knew what you were doing
+* Never rewrite commits which you have already pushed (messes up everyone
+  else)
+
 End
 ===
 
@@ -438,6 +446,17 @@ Questions/Comments
 * More reference available [here](http://tuftsdev.github.com/WebProgramming/#references)
 * Still unclear?
 * Did I miss something?
+
+Quiz
+----
+1. Create a repository
+2. Commit thrice
+3. Create a branch from the first commit and add another commit or two.
+4. Merge the new branch into master
+5. Undo the merge in master
+6. Rebase the new branch onto master instead
+7. Squash all the commits on top of the initial commit
+
 
 ------------------------------------------------------------------------------
 

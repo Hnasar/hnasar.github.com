@@ -5,14 +5,15 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Hashem Nasarat" />
-  <title>Using Git: An Overview for Comp 20</title>
+  <meta name="date" content="2013-02-15" />
+  <title>Using Git: An Overview</title>
   <style type="text/css">code{white-space: pre;}</style>
 </head>
 <body>
 <div id="header">
-<h1 class="title">Using Git: An Overview for Comp 20</h1>
+<h1 class="title">Using Git: An Overview</h1>
 <h2 class="author">Hashem Nasarat</h2>
-<h3 class="date">February 4, 2013</h3>
+<h3 class="date">February 15, 2013</h3>
 </div>
 <h2 id="what-is-git">What is git?</h2>
 <ul>
@@ -32,7 +33,8 @@
 <ul>
 <li>Warning: the documentation is pretty gross</li>
 </ul></li>
-<li>The following are the most useful bits of git knowledge I've picked up over the years.</li>
+<li>The following are the most useful bits of git knowledge I've picked up over the years, starting from the basics.</li>
+<li>If you're experienced with the basics of git (<em>add, commit, push, pull</em>) and you don't want a refresher, you could try digging a little deeper with <a href="ftp.newartisans.com/pub/git.from.bottom.up.pdf">Git From The Bottom Up</a> for a few minutes.</li>
 </ul>
 <h1 id="git-local-repository-only">Git: Local Repository Only</h1>
 <h2 id="basic-usage-local-repository">Basic Usage (local repository)</h2>
@@ -84,15 +86,23 @@
 </ul></li>
 </ul>
 <h1 id="git-local-and-remote-repositories">Git: Local and Remote Repositories</h1>
-<h2 id="basic-usage-local-remote-repository">Basic Usage (local + remote repository)</h2>
+<h2 id="github-basics">GitHub Basics</h2>
 <ul>
-<li>Git repositories can be synchronized between multiple local and multiple remote computers (e.g. your laptop, halligan, and GitHub).
+<li>Git repositories can be synchronized between multiple local and multiple remote computers (e.g. your laptop, halligan, and GitHub).</li>
+<li>GitHub offers public remote repositories</li>
+<li>Remote repositories allow distributed development</li>
+<li>Get set up <a href="github.com">here</a>
+<ol style="list-style-type: decimal">
+<li>Create an account</li>
+<li>Create a GitHub repo</li>
+<li>Follow the directions (git remote add origin <em>blah</em>, and git push -u origin master)</li>
+</ol></li>
+</ul>
+<h2 id="basic-usage-local-remote-repository">Basic Usage (local + remote repository)</h2>
 <ul>
 <li>A repository's <code>.git/config</code> file has details</li>
 <li>Default remote name is <code>origin</code></li>
 <li><em>git remote add origin https://github.com/Hnasar/test.git</em></li>
-</ul></li>
-<li>GitHub offers public remote repositories</li>
 <li>Local and remote repositories has benefits:
 <ul>
 <li>Work on stuff without an Internet connection</li>
@@ -164,15 +174,6 @@
 <li><em><code>git pull</code> is usually bad form. Use <code>git pull --rebase</code></em></li>
 <li>Read <a href="http://blog.experimentalworks.net/2009/03/merge-vs-rebase-a-deep-dive-into-the-mysteries-of-revision-control/">this article</a> for more info.</li>
 </ul>
-<h2 id="interlude-setting-up-github-user-pages">Interlude: Setting up GitHub User Pages</h2>
-<ul>
-<li>User pages: a GitHub feature that exposes a specific repository in your account as a website.</li>
-<li>Email account must be verified.</li>
-<li>Repository must be named: <em>username</em><code>.github.com</code></li>
-<li>10 minutes needed before the page will load</li>
-<li>If you can't get it to work, delete the repo and recreate it.</li>
-<li>E.g. My GitHub username is <em>hnasar</em>. My &quot;User Pages&quot; repository is called <code>hnasar.github.com</code>, and it's accessible <a href="http://hnasar.github.com/">here</a></li>
-</ul>
 <h2 id="viewing-a-repository-1">Viewing a Repository 1</h2>
 <ul>
 <li><code>gitk --all</code></li>
@@ -185,16 +186,6 @@
 <li>mnemonic: (git log g.o.a.d.), goad, meaning it's annoying to type all that</li>
 <li>(Shortcut: <code>Ctrl + r</code>, then start typing <code>git log --graph</code> ...)</li>
 <li><img src="git-log-goad.png" title="fig:" alt="git log goad" /></li>
-</ul>
-<h2 id="what-next">What next?</h2>
-<ul>
-<li>Lots of potential topics. What are you interested in?</li>
-<li>Committing and good commit style</li>
-<li>Undoing commits and fixing things</li>
-<li>Working with branches</li>
-<li>GitHub forking and pull requests</li>
-<li>Time travel</li>
-<li>Questions from the audience</li>
 </ul>
 <h1 id="committing-and-good-commit-style">Committing and Good Commit Style</h1>
 <h2 id="adding-and-committing">Adding and Committing</h2>
@@ -416,6 +407,24 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
 <li><code>git blame</code> <em>&lt;file&gt;</em> to see when and who last made changes to a part of a file.</li>
 <li><code>git show</code> <em>&lt;commit&gt;</em> displays the contents of a given commit.</li>
 </ul>
+<h2 id="commit-ishs">Commit-ishs</h2>
+<ul>
+<li><strong>commit-ish</strong>: some way to reference commits
+<ul>
+<li>branch-name</li>
+<li>commit-hash</li>
+<li>relationships</li>
+</ul></li>
+<li>'~' - ancestor (defaults to ~1)</li>
+<li>Ex: HEAD~2 (parent of parent of current commit)</li>
+</ul>
+<h2 id="rewriting-history">Rewriting History</h2>
+<ul>
+<li><code>git rebase -i</code> <em>&lt;commit-ish&gt;</em></li>
+<li>reorder, delete, squash commits</li>
+<li>Used to make it look like you knew what you were doing</li>
+<li>Never rewrite commits which you have already pushed (messes up everyone else)</li>
+</ul>
 <h1 id="end">End</h1>
 <h2 id="questionscomments">Questions/Comments</h2>
 <ul>
@@ -423,6 +432,16 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
 <li>Still unclear?</li>
 <li>Did I miss something?</li>
 </ul>
+<h2 id="quiz">Quiz</h2>
+<ol style="list-style-type: decimal">
+<li>Create a repository</li>
+<li>Commit thrice</li>
+<li>Create a branch from the first commit and add another commit or two.</li>
+<li>Merge the new branch into master</li>
+<li>Undo the merge in master</li>
+<li>Rebase the new branch onto master instead</li>
+<li>Squash all the commits on top of the initial commit</li>
+</ol>
 <hr />
 <p><em>This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/.</em></p>
 </body>

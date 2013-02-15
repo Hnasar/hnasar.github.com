@@ -7,7 +7,8 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Hashem Nasarat" />
-  <title>Using Git: An Overview for Comp 20</title>
+  <meta name="date" content="2013-02-15" />
+  <title>Using Git: An Overview</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
     href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
@@ -16,11 +17,11 @@
 </head>
 <body>
 <div class="slide titlepage">
-  <h1 class="title">Using Git: An Overview for Comp 20</h1>
+  <h1 class="title">Using Git: An Overview</h1>
   <p class="author">
 Hashem Nasarat
   </p>
-  <p class="date">February 4, 2013</p>
+  <p class="date">February 15, 2013</p>
 </div>
 <div class="section slide level2" id="what-is-git">
 <h1>What is git?</h1>
@@ -43,7 +44,8 @@ Hashem Nasarat
 <ul class="incremental">
 <li>Warning: the documentation is pretty gross</li>
 </ul></li>
-<li>The following are the most useful bits of git knowledge I’ve picked up over the years.</li>
+<li>The following are the most useful bits of git knowledge I’ve picked up over the years, starting from the basics.</li>
+<li>If you’re experienced with the basics of git (<em>add, commit, push, pull</em>) and you don’t want a refresher, you could try digging a little deeper with <a href="ftp.newartisans.com/pub/git.from.bottom.up.pdf">Git From The Bottom Up</a> for a few minutes.</li>
 </ul>
 </div>
 <div class="section titleslide slide level1" id="git-local-repository-only"><h1>Git: Local Repository Only</h1></div><div class="section slide level2" id="basic-usage-local-repository">
@@ -94,16 +96,25 @@ Hashem Nasarat
 </ul></li>
 </ul>
 </div>
-<div class="section titleslide slide level1" id="git-local-and-remote-repositories"><h1>Git: Local and Remote Repositories</h1></div><div class="section slide level2" id="basic-usage-local-remote-repository">
-<h1>Basic Usage (local + remote repository)</h1>
+<div class="section titleslide slide level1" id="git-local-and-remote-repositories"><h1>Git: Local and Remote Repositories</h1></div><div class="section slide level2" id="github-basics">
+<h1>GitHub Basics</h1>
 <ul class="incremental">
-<li>Git repositories can be synchronized between multiple local and multiple remote computers (e.g. your laptop, halligan, and GitHub).
+<li>Git repositories can be synchronized between multiple local and multiple remote computers (e.g. your laptop, halligan, and GitHub).</li>
+<li>GitHub offers public remote repositories</li>
+<li>Remote repositories allow distributed development</li>
+<li>Get set up <a href="github.com">here</a>
+<ol class="incremental" style="list-style-type: decimal">
+<li>Create an account</li>
+<li>Create a GitHub repo</li>
+<li>Follow the directions (git remote add origin <em>blah</em>, and git push -u origin master)</li>
+</ol></li>
+</ul>
+</div><div class="section slide level2" id="basic-usage-local-remote-repository">
+<h1>Basic Usage (local + remote repository)</h1>
 <ul class="incremental">
 <li>A repository’s <code>.git/config</code> file has details</li>
 <li>Default remote name is <code>origin</code></li>
 <li><em>git remote add origin https://github.com/Hnasar/test.git</em></li>
-</ul></li>
-<li>GitHub offers public remote repositories</li>
 <li>Local and remote repositories has benefits:
 <ul class="incremental">
 <li>Work on stuff without an Internet connection</li>
@@ -171,16 +182,6 @@ Hashem Nasarat
 <li><em><code>git pull</code> is usually bad form. Use <code>git pull --rebase</code></em></li>
 <li>Read <a href="http://blog.experimentalworks.net/2009/03/merge-vs-rebase-a-deep-dive-into-the-mysteries-of-revision-control/">this article</a> for more info.</li>
 </ul>
-</div><div class="section slide level2" id="interlude-setting-up-github-user-pages">
-<h1>Interlude: Setting up GitHub User Pages</h1>
-<ul class="incremental">
-<li>User pages: a GitHub feature that exposes a specific repository in your account as a website.</li>
-<li>Email account must be verified.</li>
-<li>Repository must be named: <em>username</em><code>.github.com</code></li>
-<li>10 minutes needed before the page will load</li>
-<li>If you can’t get it to work, delete the repo and recreate it.</li>
-<li>E.g. My GitHub username is <em>hnasar</em>. My “User Pages” repository is called <code>hnasar.github.com</code>, and it’s accessible <a href="http://hnasar.github.com/">here</a></li>
-</ul>
 </div><div class="section slide level2" id="viewing-a-repository-1">
 <h1>Viewing a Repository 1</h1>
 <ul class="incremental">
@@ -195,17 +196,6 @@ Hashem Nasarat
 <li>mnemonic: (git log g.o.a.d.), goad, meaning it’s annoying to type all that</li>
 <li>(Shortcut: <code>Ctrl + r</code>, then start typing <code>git log --graph</code> …)</li>
 <li><img src="git-log-goad.png" title="fig:" alt="git log goad" /></li>
-</ul>
-</div><div class="section slide level2" id="what-next">
-<h1>What next?</h1>
-<ul class="incremental">
-<li>Lots of potential topics. What are you interested in?</li>
-<li>Committing and good commit style</li>
-<li>Undoing commits and fixing things</li>
-<li>Working with branches</li>
-<li>GitHub forking and pull requests</li>
-<li>Time travel</li>
-<li>Questions from the audience</li>
 </ul>
 </div>
 <div class="section titleslide slide level1" id="committing-and-good-commit-style"><h1>Committing and Good Commit Style</h1></div><div class="section slide level2" id="adding-and-committing">
@@ -428,6 +418,26 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
 <li><code>git blame</code> <em>&lt;file&gt;</em> to see when and who last made changes to a part of a file.</li>
 <li><code>git show</code> <em>&lt;commit&gt;</em> displays the contents of a given commit.</li>
 </ul>
+</div><div class="section slide level2" id="commit-ishs">
+<h1>Commit-ishs</h1>
+<ul class="incremental">
+<li><strong>commit-ish</strong>: some way to reference commits
+<ul class="incremental">
+<li>branch-name</li>
+<li>commit-hash</li>
+<li>relationships</li>
+</ul></li>
+<li>‘~’ - ancestor (defaults to ~1)</li>
+<li>Ex: HEAD~2 (parent of parent of current commit)</li>
+</ul>
+</div><div class="section slide level2" id="rewriting-history">
+<h1>Rewriting History</h1>
+<ul class="incremental">
+<li><code>git rebase -i</code> <em>&lt;commit-ish&gt;</em></li>
+<li>reorder, delete, squash commits</li>
+<li>Used to make it look like you knew what you were doing</li>
+<li>Never rewrite commits which you have already pushed (messes up everyone else)</li>
+</ul>
 </div>
 <div class="section titleslide slide level1" id="end"><h1>End</h1></div><div class="section slide level2" id="questionscomments">
 <h1>Questions/Comments</h1>
@@ -436,6 +446,17 @@ cannot process images or who have image loading disabled&quot;.</code></pre>
 <li>Still unclear?</li>
 <li>Did I miss something?</li>
 </ul>
+</div><div class="section slide level2" id="quiz">
+<h1>Quiz</h1>
+<ol class="incremental" style="list-style-type: decimal">
+<li>Create a repository</li>
+<li>Commit thrice</li>
+<li>Create a branch from the first commit and add another commit or two.</li>
+<li>Merge the new branch into master</li>
+<li>Undo the merge in master</li>
+<li>Rebase the new branch onto master instead</li>
+<li>Squash all the commits on top of the initial commit</li>
+</ol>
 </div><div class="section slide level2">
 
 <p><em>This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/.</em></p>
