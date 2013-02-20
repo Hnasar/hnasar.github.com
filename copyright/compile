@@ -1,0 +1,4 @@
+#! /bin/sh
+
+pandoc -s copyright.md -o copyright.pdf
+pandoc -s copyright.md -o copyright.html
